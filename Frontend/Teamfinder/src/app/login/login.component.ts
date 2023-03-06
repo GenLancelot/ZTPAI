@@ -8,8 +8,8 @@ import { FormBuilder , Validators} from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent{
-  firstNameAutofilled: boolean = false;
-  lastNameAutofilled: boolean = false;
+  loginAutofilled: boolean = false;
+  passwordAutofilled: boolean = false;
 
 
   loginForm = this.fb.group({
@@ -20,6 +20,7 @@ export class LoginComponent{
   constructor(private loginservice : LoginService, private fb : FormBuilder){}
 
   login(){
+    if(this.loginForm.invalid) return;
     this.loginservice.loginpost(this.loginForm.value).subscribe(x => {console.log(x)});
   }
 }

@@ -9,17 +9,17 @@
                 <h1>Login to our app</h1>
                 <mat-form-field appearance="fill">
                     <mat-label>Email</mat-label>
-                    <input matInput (cdkAutofill)="firstNameAutofilled = $event.isAutofilled" formControlName="login" >
-                    <mat-hint *ngIf="firstNameAutofilled">Autofilled!</mat-hint>
+                    <input matInput (cdkAutofill)="loginAutofilled = $event.isAutofilled" formControlName="login" >
+                    <mat-hint *ngIf="loginAutofilled">Autofilled!</mat-hint>
                   </mat-form-field>
                   <mat-form-field appearance="fill">
                     <mat-label>Password</mat-label>
-                    <input matInput (cdkAutofill)="lastNameAutofilled = $event.isAutofilled" type="password" formControlName="password" >
-                    <mat-hint *ngIf="lastNameAutofilled">Autofilled!</mat-hint>
+                    <input matInput (cdkAutofill)="passwordAutofilled = $event.isAutofilled" type="password" formControlName="password" >
+                    <mat-hint *ngIf="passwordAutofilled">Autofilled!</mat-hint>
                 </mat-form-field>
                 <button mat-raised-button (click)="login()">Next</button>
             </div>
-            <p id="registration">Or sing up <a href="/registration">here!</a></p>
+            <p id="registration">Or sing up <a [routerLink]="'/register'">here!</a></p>
         </form>
     </div>
 </div>

@@ -1,0 +1,32 @@
+<div class="screen">
+    <div class="logo-box">
+        <div id="logo">Teamfinder</div>
+        <div id="logo-subtext">Find people to play games!</div>
+    </div>
+    <div class="register-box">
+        <form [formGroup] = "registerForm">
+            <div id="register-form">
+                <h1>Register to our app</h1>
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput (cdkAutofill)="loginAutofilled = $event.isAutofilled" formControlName="login" >
+                    <mat-hint *ngIf="loginAutofilled">Autofilled!</mat-hint>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input matInput (cdkAutofill)="passwordAutofilled = $event.isAutofilled" type="password" formControlName="password" >
+                    <mat-hint *ngIf="passwordAutofilled">Autofilled!</mat-hint>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Repeat password</mat-label>
+                    <input matInput (cdkAutofill)="passwordRepeatedAutofilled = $event.isAutofilled" type="passwordRepeated" formControlName="passwordRepeated" >
+                    <mat-hint *ngIf="passwordRepeatedAutofilled">Autofilled!</mat-hint>
+                    <mat-error *ngIf="registerForm.hasError('matching')">
+                        Passwords do not match
+                    </mat-error>  
+                </mat-form-field>
+                <button mat-raised-button (click)="register()">Next</button>
+            </div>
+            <p id="login">Or sing in <a [routerLink]="'/login'">here!</a></p>
+        </form>
+    </div>
