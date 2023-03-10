@@ -29,7 +29,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public Long createNewUser(User user) {
         checkUserWithIncomingLoginExists(user);
-
         return userRepository.save(User.builder().
                 login(user.getLogin()).
                 id(user.getId()).

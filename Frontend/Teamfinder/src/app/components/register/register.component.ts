@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { LoginService } from '../login.service';
+import { LoginService } from '../../services/login.service';
 import { FormControl, FormGroupDirective, NgForm, Validators, FormGroup, FormBuilder, AbstractControl, ValidatorFn } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { loginDto } from '../../models/loginDto.interface';
 
 
 export default class CustomValidators {
@@ -49,8 +50,11 @@ export class RegisterComponent {
 
   register(){
     if(this.registerForm.invalid) return;
-
-    
+    let loginDto : loginDto = {
+      login:this.registerForm.get('login')?.value,
+      password:this.registerForm.get('password')?.value
+    };
+    this.loginservice.registerpost(loginDto).subscribe(x => {console.log(x)});
   }
 
 }

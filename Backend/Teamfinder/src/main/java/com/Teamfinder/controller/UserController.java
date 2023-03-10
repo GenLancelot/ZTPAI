@@ -3,7 +3,9 @@ package com.Teamfinder.controller;
 import com.Teamfinder.controller.configuration.Converter;
 import com.Teamfinder.controller.dto.AfterLoginDto;
 import com.Teamfinder.controller.dto.LoginDto;
+import com.Teamfinder.controller.dto.RoleDto;
 import com.Teamfinder.controller.dto.UserDto;
+import com.Teamfinder.entity.Role;
 import com.Teamfinder.entity.User;
 import com.Teamfinder.service.UserService;
 import com.Teamfinder.service.exceptions.InvalidPasswordException;
@@ -42,7 +44,13 @@ class UserController {
     public ResponseEntity<Long> createNewUser(@RequestBody UserDto userDto) {
         Long newlyCreatedUserId;
         try {
-            newlyCreatedUserId = userService.createNewUser(converter.convert(userDto, User.class));
+            RoleDto roleDto = new RoleDto();
+            roleDto.setId(1);
+            roleDto.setName("user");
+            User user = converter.convert(userDto, User.class);
+            Role role = converter.convert(roleDto, Role.class);
+            user.setRole(role);
+            newlyCreatedUserId = userService.createNewUser(user);
         } catch(UserNotFoundException userNotFoundException) {
             log.error(userNotFoundException.getMessage());
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

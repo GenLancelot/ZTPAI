@@ -9,7 +9,7 @@
                 <h1>Register to our app</h1>
                 <mat-form-field appearance="fill">
                     <mat-label>Email</mat-label>
-                    <input matInput (cdkAutofill)="loginAutofilled = $event.isAutofilled" formControlName="login" >
+                    <input type="email" matInput (cdkAutofill)="loginAutofilled = $event.isAutofilled" formControlName="login" email>
                     <mat-hint *ngIf="loginAutofilled">Autofilled!</mat-hint>
                 </mat-form-field>
                 <mat-form-field appearance="fill">
@@ -19,7 +19,7 @@
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                     <mat-label>Repeat password</mat-label>
-                    <input matInput (cdkAutofill)="passwordRepeatedAutofilled = $event.isAutofilled" type="passwordRepeated" formControlName="passwordRepeated" >
+                    <input matInput (cdkAutofill)="passwordRepeatedAutofilled = $event.isAutofilled" type="password" formControlName="passwordRepeated" >
                     <mat-hint *ngIf="passwordRepeatedAutofilled">Autofilled!</mat-hint>
                     <mat-error *ngIf="registerForm.hasError('matching')">
                         Passwords do not match
