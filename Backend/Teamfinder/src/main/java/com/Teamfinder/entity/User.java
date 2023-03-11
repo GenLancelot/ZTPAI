@@ -2,8 +2,13 @@ package com.Teamfinder.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.CurrentTimestamp;
+import org.hibernate.annotations.GenerationTime;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -16,8 +21,14 @@ import java.util.Objects;
 @NoArgsConstructor
 @EqualsAndHashCode
 public class User implements Serializable {
+    @TableGenerator(
+            name = "usersGenerator",
+            allocationSize = 1,
+            initialValue = 1)
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(
+            strategy=GenerationType.TABLE,
+            generator="usersGenerator")
     @Column(name = "\"ID_user\"")
     private Long id;
     @Column(name = "email")
@@ -27,6 +38,13 @@ public class User implements Serializable {
     private Role role;
     @Column(name = "password")
     private String password;
+    @Column(name = "enable")
+    @ColumnDefault("true")
+    private boolean enable = true;
+    @Column(name = "created_at", nullable = false,
+            columnDefinition="TIMESTAMP default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Timestamp created_at = Timestamp.valueOf(LocalDateTime.now());
 
     public String getPassword() {
         return password;

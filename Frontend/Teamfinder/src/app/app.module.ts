@@ -12,12 +12,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { GameselectComponent } from './components/gameselect/gameselect.component';
+import { GameboxGameselectComponent } from './components/gamebox-gameselect/gamebox-gameselect.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    GameselectComponent,
+    GameboxGameselectComponent
   ],
   imports: [
     BrowserModule,

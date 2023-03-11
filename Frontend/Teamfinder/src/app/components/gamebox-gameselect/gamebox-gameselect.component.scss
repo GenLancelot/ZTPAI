@@ -1,0 +1,33 @@
+.gamebox {
+    display: flex;
+    flex-direction: row;
+    height: 12vh;
+    text-align: right;
+    align-items: center;
+
+    .gamebox-icon{
+        width: 10%;
+        margin: auto;
+    }
+    
+    img.gamebox-icon {
+        height: 90%;
+        margin: auto;
+    }
+    
+    .gamebox-name{
+        width: 80%;
+        padding-right: 1%;
+    }
+    
+    .gamebox.selected{
+        background: #8e8fa3;
+    }
+
+    @media only screen and (max-device-width: 650px) {
+        .gamebox-icon{
+            width: 15%;
+        }
+    }
+}
+

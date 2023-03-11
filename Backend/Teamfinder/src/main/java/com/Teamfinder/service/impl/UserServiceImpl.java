@@ -34,6 +34,8 @@ public class UserServiceImpl implements UserService {
                 id(user.getId()).
                 password(user.getPassword()).
                 role(user.getRole()).
+                enable(user.isEnable()).
+                created_at(user.getCreated_at()).
                 build()).
                 getId();
     }

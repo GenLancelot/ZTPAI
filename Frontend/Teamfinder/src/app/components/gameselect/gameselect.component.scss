@@ -1,0 +1,70 @@
+.screen{
+    width:100vw;
+    height: 100vh;
+    background: linear-gradient(222.1deg, #7C819C 16.86%, rgba(161, 164, 184, 0.53) 57.66%, rgba(130, 112, 94, 0.76) 86.8%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .headline{
+        margin-top: 1%;
+        padding: 1vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .select-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 90%;
+        height: 80vh;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+        border-radius: 25px;
+
+        .searchbox{
+            width: 90%;
+            margin:2% 0 2% 0;
+
+            mat-form-field
+            {
+                width: 100%;
+            }
+
+        }
+
+        .selectablegames{
+            width: 90%;
+            background-color: #e4e5ec;
+            height: 75%;
+            overflow-y: scroll;
+        }
+        
+        .buttons{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 80%;
+            margin:2% 0 2% 0;
+
+            button[mat-raised-button]
+            {
+                background: #F55C0A;
+                width: 20%;
+                color:white;
+                padding: 2.5vh; 
+            }
+        }
+    }
+}
+
+
+
+
+

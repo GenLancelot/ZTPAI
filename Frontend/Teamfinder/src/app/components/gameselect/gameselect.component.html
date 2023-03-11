@@ -1,0 +1,23 @@
+<div class="screen">
+    <div class="headline">
+        <h1>Select your game!</h1>
+    </div>
+    <div class="select-container">
+        <header class = "searchbox">
+            <mat-form-field appearance="fill">
+                <mat-label>Search game</mat-label>
+                <!-- <input matInput type="text" formControlName="searchgame"> -->
+                <input matInput type="text">
+            </mat-form-field>
+        </header>
+        <div class ="selectablegames" >
+            <ng-container *ngFor="let game of games$ | async">
+                <app-gamebox-gameselect [game]="game"></app-gamebox-gameselect>
+            </ng-container>
+        </div>
+        <div class="buttons">
+            <button mat-raised-button type="submit" id="skip">Skip</button>
+            <button mat-raised-button type="submit" id="next">Next</button>
+        </div>
+    </div>
+</div>
