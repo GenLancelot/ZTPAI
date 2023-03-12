@@ -1,4 +1,4 @@
-<div class="gamebox">
+<div class="gamebox" [class]="game?.isSelected ? 'selected' : ''">
     <img class ="gamebox-icon" [src]="'assets/icons/games/'+game?.filename">
     <div class="gamebox-name">
         {{game?.name}}

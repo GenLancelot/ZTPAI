@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { GameDto } from 'src/app/models/GameDto.interface copy';
+import { GameDto } from 'src/app/models/GameDto.interface';
 
 @Component({
   selector: 'app-gamebox-gameselect',

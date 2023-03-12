@@ -7,13 +7,13 @@
             <mat-form-field appearance="fill">
                 <mat-label>Search game</mat-label>
                 <!-- <input matInput type="text" formControlName="searchgame"> -->
-                <input matInput type="text">
+                <input matInput type="text" [(ngModel)]="searchText">
             </mat-form-field>
         </header>
         <div class ="selectablegames" >
-            <ng-container *ngFor="let game of games$ | async">
-                <app-gamebox-gameselect [game]="game"></app-gamebox-gameselect>
-            </ng-container>
+            <ng-container *ngFor="let game of gamesArray | searchFilter: searchText">
+                <app-gamebox-gameselect [game]="game" (click)="changeSelected(game)" [class]="game.isSelected ? 'selected' : ''" class="selected"></app-gamebox-gameselect>
+            </ng-container> 
         </div>
         <div class="buttons">
             <button mat-raised-button type="submit" id="skip">Skip</button>

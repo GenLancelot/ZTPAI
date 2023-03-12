@@ -20,10 +20,6 @@
         padding-right: 1%;
     }
     
-    .gamebox.selected{
-        background: #8e8fa3;
-    }
-
     @media only screen and (max-device-width: 650px) {
         .gamebox-icon{
             width: 15%;
@@ -31,3 +27,6 @@
     }
 }
 
+.selected{
+    background: #8e8fa3;
+}
